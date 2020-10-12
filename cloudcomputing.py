@@ -47,3 +47,6 @@ def getVilleRennes():
 L_lille =getVilleLille()
 print(L_lille)
 print(len(L_lille))
+
+posts=db.posts
+post_Lille=posts.insert_many(L_lille)
