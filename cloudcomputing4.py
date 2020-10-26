@@ -136,8 +136,8 @@ def area_search(p1,p2,p3,p4,state):
 
 
 def ratio_bike():
-    heure = datetime.datetime.today().hour
-    day = datetime.datetime.today().strftime("%w")
+    heure = int(datetime.datetime.today().hour)
+    day = int(datetime.datetime.today().strftime("%w"))
     L_stations_id = []
     L_stations = list(db.stations2.find({}))
     result = []
@@ -167,5 +167,5 @@ def ratio_bike():
 #area_search(p1,p2,p3,p4,False)
 print(datetime.datetime.today().hour)
 
-
+print(ratio_bike())
 
