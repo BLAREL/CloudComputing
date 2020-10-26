@@ -141,12 +141,13 @@ def ratio_bike():
     L_stations_id = []
     L_stations = list(db.stations2.find({}))
     result = []
-    if (heure == 18 and day < 6):
-        data = list(db.datas.find({ "station_id": 1 }, { 'stand_availbale': 1 },{'bike_availbale': 1}) )
+    if (heure == 17 and day < 6):
+        data = list(db.datas.find({}) )
         for elem in data:
-            ratio = elem['bike_availbale'] / elem['stand_availbale']
-            if (ratio < 0.2):
-                L_stations_id.append(elem["station_id"])
+            if (elem['stand_availbale'] != 0):
+                ratio = elem['bike_availbale'] / elem['stand_availbale']
+                if (ratio < 0.2):
+                    L_stations_id.append(elem["station_id"])
     if (L_stations_id != []):
         for elem in L_stations_id:
             for elem1 in L_stations:
